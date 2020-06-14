@@ -1,6 +1,7 @@
 ---
 slug: "/project/mountains"
-date: "2020-05-01"
+startDate: "2020-05-01"
+endDate: "2020-05-22"
 title: "Rendering Mountains using the Diamond Square Algorithm"
 featuredImage: "featured-mountain.png"
 ---
