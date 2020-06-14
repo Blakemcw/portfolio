@@ -11,7 +11,6 @@ const IndexPage = () => {
     allMarkdownRemark {
       nodes {
         frontmatter {
-          date
           slug
           title
           featuredImage {
