@@ -25,23 +25,24 @@ const TitleCard = props => {
 
   useEffect(
     () => {
-      if (windowWidth == null) updateWindowWidth(window.innerWidth)
-      window.addEventListener("resize", () =>
-        updateWindowWidth(window.innerWidth)
-      )
+      let handleResize = () => updateWindowWidth(window.innerWidth)
+      handleResize()
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
     },
-    [] /* Empty array in dependencies so the event listener is added only once */
+    [] /* Empty array in dependencies so event listener is added only once */
   )
 
   let titleCardStyle = {
     margin: `1rem 0`,
-    width: isFeatured || windowWidth < mobileBreakpoint ? `100%` : `33%`,
+    width: isFeatured || windowWidth < mobileBreakpoint ? `100%` : `30%`,
   }
 
   let imageStyle = {
     marginBottom: `.5rem`,
     width: `100%`,
     height: isFeatured ? `350px` : `250px`,
+    borderRadius: `1px`,
   }
 
   let linkStyle = {
