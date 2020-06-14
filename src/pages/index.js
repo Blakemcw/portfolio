@@ -1,22 +1,54 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery} from "gatsby"
+import TitleCard from '../components/title-card'
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+  query ProjectsQuery {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          date
+          slug
+          title
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
+
+  let renderProjectsTitleCards = () => {
+    let first = true
+    return (
+      data.allMarkdownRemark.nodes.map(node => {
+        if (first) {
+          first = false
+          return <TitleCard frontmatter={node.frontmatter} isFeatured={true}/>
+        }
+          return <TitleCard frontmatter={node.frontmatter} isFeatured={false}/>
+      })
+    )
+  }
+  
+  return (
+    <Layout>
+      <SEO title="Home" />
+      
+      <h3>Projects</h3>
+      {renderProjectsTitleCards()}
+
+    </Layout>
+  )
+}
 
 export default IndexPage
