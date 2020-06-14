@@ -15,7 +15,7 @@ const TitleCard = props => {
   // ===========================================================================
 
   const [hovering, setHovering] = useState(false)
-  const [windowWidth, updateWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, updateWindowWidth] = useState(null)
 
   // ===========================================================================
   // Styling
@@ -25,6 +25,7 @@ const TitleCard = props => {
 
   useEffect(
     () => {
+      if (windowWidth == null) updateWindowWidth(window.innerWidth)
       window.addEventListener("resize", () =>
         updateWindowWidth(window.innerWidth)
       )
@@ -40,7 +41,7 @@ const TitleCard = props => {
   let imageStyle = {
     marginBottom: `.5rem`,
     width: `100%`,
-    height: isFeatured? `350px`: `250px`,
+    height: isFeatured ? `350px` : `250px`,
   }
 
   let linkStyle = {
