@@ -19,7 +19,6 @@ const Layout = ({ children }) => {
 
   return (
     <ResponsiveComponents>
-      <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -37,7 +36,6 @@ const Layout = ({ children }) => {
           © {new Date().getFullYear()}
         </footer>
       </div>
-      </>
     </ResponsiveComponents>
   )
 }
