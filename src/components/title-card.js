@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+import { useResponsiveComponents } from "../contexts/responsive-components"
 
 const TitleCard = props => {
   // ===========================================================================
@@ -15,23 +16,12 @@ const TitleCard = props => {
   // ===========================================================================
 
   const [hovering, setHovering] = useState(false)
-  const [windowWidth, updateWindowWidth] = useState(null)
 
   // ===========================================================================
   // Styling
   // ===========================================================================
 
-  const mobileBreakpoint = 800 // update style for mobile device
-
-  useEffect(
-    () => {
-      let handleResize = () => updateWindowWidth(window.innerWidth)
-      handleResize()
-      window.addEventListener("resize", handleResize)
-      return () => window.removeEventListener("resize", handleResize)
-    },
-    [] /* Empty array in dependencies so event listener is added only once */
-  )
+  let { windowWidth, mobileBreakpoint } = useResponsiveComponents()
 
   let titleCardStyle = {
     margin: `1rem 0`,
