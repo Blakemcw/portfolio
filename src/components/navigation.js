@@ -2,10 +2,14 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import { useResponsiveComponents } from "../contexts/responsive-components"
+
 const Navigation = ({ links }) => {
   // ===========================================================================
   // Styling
   // ===========================================================================
+
+  let { windowWidth, mobileBreakpoint } = useResponsiveComponents()
 
   let listStyle = {
     textDecoration: `none`,
@@ -22,6 +26,12 @@ const Navigation = ({ links }) => {
     fontFamily: `sans-serif`,
     textDecoration: `none`,
     color: `#484848`,
+  }
+
+  let menuButtonStyle = {
+    ...linkStyle,
+    fontSize: `1.5rem`,
+    marginRight: `1rem`
   }
 
   // ===========================================================================
@@ -60,12 +70,32 @@ const Navigation = ({ links }) => {
     }
   }
 
-  return (
-    <ul style={listStyle}>
-      {links.map(([linkName, link]) => {
-        return renderLink(linkName, link)
-      })}
-    </ul>
+  let renderLinks = () => {
+    return (
+      <ul style={listStyle}>
+        {links.map(([linkName, link]) => {
+          return renderLink(linkName, link)
+        })}
+      </ul>
+    )
+  }
+
+  let renderMenuButton = () => {
+    return(
+      <a
+        href="#"
+        onClick={() => {console.log("clicked")}}
+        style={menuButtonStyle}
+      >
+          &#9776;
+      </a>
+    )
+  }
+
+  return(
+    <>
+      {windowWidth < mobileBreakpoint ? renderMenuButton() : renderLinks()}
+    </>
   )
 }
 
