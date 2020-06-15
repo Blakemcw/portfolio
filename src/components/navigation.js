@@ -37,6 +37,17 @@ const Navigation = ({ links }) => {
     color: `#484848`,
   }
 
+  let mobileMenuStyle = {
+    backgroundColor: `#fff`,
+    zIndex: 999,
+    width: `350px`,
+    height: `calc(100vh - 4.3rem)`,
+    position: `fixed`,
+    right: 0,
+    bottom: 0,
+    borderLeft: `1px solid #dedede`,
+  }
+
   let mobileListElementStyle = {
     display: `block`,
     margin: 0,
@@ -72,10 +83,10 @@ const Navigation = ({ links }) => {
   // Render
   // ===========================================================================
 
-  let renderLink = (linkName, link, isMobile=false) => {
+  let renderLink = (linkName, link, isMobile = false) => {
     if (isExternalLink(link)) {
       return (
-        <li style={isMobile? mobileListElementStyle : listElementStyle}>
+        <li style={isMobile ? mobileListElementStyle : listElementStyle}>
           <a href={link} style={linkStyle}>
             {linkName}
           </a>
@@ -83,7 +94,7 @@ const Navigation = ({ links }) => {
       )
     } else {
       return (
-        <li style={isMobile? mobileListElementStyle : listElementStyle}>
+        <li style={isMobile ? mobileListElementStyle : listElementStyle}>
           <Link to={link} style={linkStyle}>
             {linkName}
           </Link>
@@ -116,16 +127,7 @@ const Navigation = ({ links }) => {
   let renderMenu = () => {
     return (
       <div
-        style={{
-          backgroundColor: `#fff`,
-          zIndex: 999,
-          width: `350px`,
-          height: `calc(100vh - 4.3rem)`,
-          position: `fixed`,
-          right: 0,
-          bottom: 0,
-          borderLeft: `1px solid #dedede`,
-        }}
+        style={mobileMenuStyle}
       >
         <ul style={listStyle}>
           {links.map(([linkName, link]) => {
