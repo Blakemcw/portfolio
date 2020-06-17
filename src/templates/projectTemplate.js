@@ -17,7 +17,7 @@ export default function ProjectTemplate({ data }) {
 
   return (
     <Layout>
-      <div className="project-container" style={contentStyle}>
+      <div className="project-container">
         <div className="project">
           <h1>{frontmatter.title}</h1>
           <h6>{frontmatter.startDate} - {frontmatter.endDate}</h6>
