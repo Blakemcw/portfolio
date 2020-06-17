@@ -1,0 +1,25 @@
+.project-content {
+    color: #484848;
+}
+
+.project-content a {
+    color: #484848;
+    text-decoration: none;
+    padding-bottom: .1rem;
+    border-bottom: 1px solid #dedede;
+}
+
+.project-content a:hover {
+    border-bottom: 1px solid #484848;
+    transition: border-bottom .1s;
+}
+
+.project-content #TopLinks {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-left: solid .1rem #dedede;
+}
+
+.project-content #TopLinks a {
+    margin-left: 1rem;
+}
