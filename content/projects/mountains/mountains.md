@@ -6,7 +6,11 @@ title: "Rendering Mountains using the Diamond Square Algorithm"
 featuredImage: "featured-mountain.png"
 ---
 
-**[View this project on Github](https://github.com/Blakemcw/mountains)**
+<div id="TopLinks">
+    <a href="https://github.com/Blakemcw/mountains">View this project on Github</a>
+</div>
+
+<br />
 
 A while ago I came across the [Diamond-Square Algorithm](https://en.wikipedia.org/wiki/Diamond-square_algorithm) and wanted to create my own implementation. The algorithm was invented by Loren Carpenter, a co-founder of Pixar, in the 1980s for a short film showcasing computer generated landscapes. I've always been interested in procedurally generated graphics and I figured that a good way to get my feet wet would be by learning from one of the greats. The steps to Carpenter's algorithm are fairly straightforward and result in pretty realistic looking mountainous landscapes. The steps are summarized succinctly in this image from the previously linked Wikipedia article.
 
