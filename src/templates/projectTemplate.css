@@ -68,6 +68,13 @@
 
 /* Content Styling */
 
+.project-container {
+	color: #484848;
+	text-decoration: none;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
 .project h1, .project h2, .project h3, .project h4, .project h5, .project h6 {
 	font-family: bree-serif;
 }
