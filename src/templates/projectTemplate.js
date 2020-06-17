@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import "./ProjectTemplate.css"
 
 export default function ProjectTemplate({ data }) {
   // ===========================================================================
@@ -12,12 +11,23 @@ export default function ProjectTemplate({ data }) {
   const { frontmatter, html } = markdownRemark
 
   // ===========================================================================
+  // Styling
+  // ===========================================================================
+
+  let contentStyle = {
+    color: `#484848`,
+    textDecoration: `none`,
+    maxWidth: `900px`,
+    margin: `0 auto`
+  }
+
+  // ===========================================================================
   // Render
   // ===========================================================================
 
   return (
     <Layout>
-      <div className="project-container">
+      <div className="project-container" style={contentStyle}>
         <div className="project">
           <h1>{frontmatter.title}</h1>
           <h6>{frontmatter.startDate} - {frontmatter.endDate}</h6>
